@@ -1,0 +1,56 @@
+## Shopify Custom Product Slider Steps:
+
+1. Duplicate collection.liquid
+2. Rename collection name from preset
+3. Delete range (id=row)
+
+4. Add class name "collection-slider" in ul
+5. Assign product_limit = 12
+
+
+6. Add slider from front end
+7. Add jquery and slick cdn in theme.liquid
+
+8. Test slick from  console
+9. Add CSS in asset/theme.css
+
+
+.collection-slider .slick-track {
+    display: flex;
+}
+
+.collection-slider .product-card {
+    width: 100%;
+}
+
+.collection-slider .slick-prev {
+    left: 0;
+    z-index: 999;
+}
+
+.collection-slider .slick-next {
+    right: 0;
+    z-index: 999;
+}
+
+.collection-slider {
+    padding: 25px;
+    overflow: hidden;
+}
+
+
+================================
+10. theme.js
+
+firstly add data-slides="{{section.settings.grid}}"
+
+$(document).ready(function() {
+    $(".collection-slides").each(function() {
+
+        var num_slides = 2;
+        if(window.innerWidth >= 750) {
+            var num_slides = $(this).data("slides");
+        }
+        $(this).slick({slidesToShow: num_slides});
+    })
+})
