@@ -42,10 +42,10 @@
 ================================
 10. theme.js
 
-firstly add data-slides="{{section.settings.grid}}"
+firstly add data-slides={{section.settings.grid}}
 
 $(document).ready(function() {
-    $(".collection-slides").each(function() {
+    $(".collection-slider").each(function() {
 
         var num_slides = 2;
         if(window.innerWidth >= 750) {
